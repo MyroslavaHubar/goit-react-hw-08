@@ -1,33 +1,49 @@
-import { useEffect } from "react";
+import { lazy, Suspense } from "react";
 import "./App.css";
-import Section from "./components/Section/Section";
-import ContactList from "./components/ContactList/ContactList";
-import SearchBox from "./components/SearchBox/SearchBox";
-import ContactForm from "./components/ContactForm/ContactForm";
 import Loader from "./components/Loader/Loader";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchContacts } from "./redux/contactsOps";
-import { selectLoading } from "./redux/contactsSlice";
+// import { useDispatch, useSelector } from "react-redux";
+// import { fetchContacts } from "./redux/contactsOps";
+// import { selectLoading } from "./redux/contactsSlice";
+import Navigation from "./components/Navigation/Navigation";
+import { Route, Routes } from "react-router-dom";
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const ContactsPage = lazy(() => import("./pages/ContactsPage/ContactsPage"));
+const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
+const RegistrationPage = lazy(() =>
+  import("./pages/RegistrationPage/RegistrationPage")
+);
 
 function App() {
-  const dispatch = useDispatch();
-  const loading = useSelector(selectLoading);
+  // const dispatch = useDispatch();
+  // const loading = useSelector(selectLoading);
 
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchContacts());
+  // }, [dispatch]);
 
   return (
     <>
-      <Section>
-        {loading && <Loader />}
-        <h1 className="title">Phonebook</h1>
-        <ContactForm />
-        <SearchBox />
-        <ContactList />
-      </Section>
+      <Navigation />
+      <main>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/register" element={<RegistrationPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/contacts" element={<ContactsPage />} />
+          </Routes>
+        </Suspense>
+      </main>
     </>
   );
 }
 
 export default App;
+
+// <Section>
+//   {loading && <Loader />}
+//   <h1 className="title">Phonebook</h1>
+//   <ContactForm />
+//   <SearchBox />
+//   <ContactList />
+// </Section>
