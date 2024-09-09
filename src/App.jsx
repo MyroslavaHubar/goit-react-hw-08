@@ -1,11 +1,10 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import "./App.css";
 import Loader from "./components/Loader/Loader";
-// import { useDispatch, useSelector } from "react-redux";
-// import { fetchContacts } from "./redux/contactsOps";
-// import { selectLoading } from "./redux/contactsSlice";
 import Navigation from "./components/Navigation/Navigation";
 import { Route, Routes } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { apiRefresh } from "./redux/auth/operations";
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const ContactsPage = lazy(() => import("./pages/ContactsPage/ContactsPage"));
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
@@ -14,6 +13,12 @@ const RegistrationPage = lazy(() =>
 );
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(apiRefresh);
+  }, [dispatch]);
+
   return (
     <>
       <Navigation />
