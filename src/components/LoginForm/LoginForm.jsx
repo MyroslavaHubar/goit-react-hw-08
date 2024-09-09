@@ -1,15 +1,14 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import css from "./RegistrationForm.module.css";
+import css from "./LoginForm.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { apiRegister } from "../../redux/auth/operations";
+import { apiLogin } from "../../redux/auth/operations";
 import { selectAuthError } from "../../redux/auth/selectors";
 
-function RegistrationForm() {
+function LoginForm() {
   const dispatch = useDispatch();
   const error = useSelector(selectAuthError);
   const initialValues = {
-    name: "",
     email: "",
     password: "",
   };
@@ -17,11 +16,7 @@ function RegistrationForm() {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
-  const RegisterValidationSchema = Yup.object().shape({
-    name: Yup.string()
-      .required("Name is required")
-      .min(3, "Must be at least 2 characters")
-      .max(50, "Must be less than 50 characters"),
+  const LoginValidationSchema = Yup.object().shape({
     email: Yup.string()
       .required("Email is required")
       .min(5, "Must be at least 2 characters")
@@ -37,7 +32,7 @@ function RegistrationForm() {
   });
 
   function handleSubmit(values) {
-    dispatch(apiRegister(values));
+    dispatch(apiLogin(values));
     console.log(values);
   }
 
@@ -45,32 +40,13 @@ function RegistrationForm() {
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
-      validationSchema={RegisterValidationSchema}
+      validationSchema={LoginValidationSchema}
     >
-      <Form className={css.registerForm}>
-        <label
-          htmlFor="name"
-          placeholder="Please, enter your name"
-          className={css.registerFormTitle}
-        >
-          Name
-        </label>
-        <Field
-          type="text"
-          name="name"
-          id="name"
-          className={css.registerFormInput}
-        />
-        <ErrorMessage
-          name="name"
-          component="label"
-          className={css.registerFormError}
-        />
-
+      <Form className={css.loginForm}>
         <label
           htmlFor="email"
           placeholder="Please, enter your email"
-          className={css.registerFormTitle}
+          className={css.loginFormTitle}
         >
           Email
         </label>
@@ -78,17 +54,17 @@ function RegistrationForm() {
           type="text"
           name="email"
           id="email"
-          className={css.registerFormInput}
+          className={css.loginFormInput}
         />
         <ErrorMessage
           name="email"
           component="label"
-          className={css.registerFormError}
+          className={css.loginFormError}
         />
         <label
           htmlFor="password"
           placeholder="Please, enter your password"
-          className={css.registerFormTitle}
+          className={css.loginFormTitle}
         >
           Password
         </label>
@@ -96,16 +72,16 @@ function RegistrationForm() {
           type="password"
           name="password"
           id="password"
-          className={css.registerFormInput}
+          className={css.loginFormInput}
         />
         <ErrorMessage
           name="password"
           component="label"
-          className={css.registerFormError}
+          className={css.loginFormError}
         />
 
-        <button type="submit" aria-label="Sign Up" className={css.buttonSignUp}>
-          Sign Up
+        <button type="submit" aria-label="Sign Up" className={css.buttonLogIn}>
+          Log In
         </button>
         {error && <p>Oops, some error occured... {error}</p>}
       </Form>
@@ -113,4 +89,4 @@ function RegistrationForm() {
   );
 }
 
-export default RegistrationForm;
+export default LoginForm;

@@ -1,0 +1,37 @@
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #000;
+  width: 500px;
+  height: 100%;
+}
+
+.loginFormTitle {
+  margin-bottom: 2px;
+}
+
+.loginFormTitle:not(:first-child) {
+  margin-top: 10px;
+}
+
+.loginFormInput {
+  width: 100%;
+  padding: 7px;
+  border-radius: 3px;
+  border: 1px solid #000;
+}
+
+.loginFormError {
+  color: #c40f0f;
+  font-size: small;
+}
+
+.buttonLogIn {
+  margin-top: 20px;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+}
