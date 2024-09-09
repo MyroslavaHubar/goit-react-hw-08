@@ -14,13 +14,6 @@ const RegistrationPage = lazy(() =>
 );
 
 function App() {
-  // const dispatch = useDispatch();
-  // const loading = useSelector(selectLoading);
-
-  // useEffect(() => {
-  //   dispatch(fetchContacts());
-  // }, [dispatch]);
-
   return (
     <>
       <Navigation />
@@ -39,11 +32,3 @@ function App() {
 }
 
 export default App;
-
-// <Section>
-//   {loading && <Loader />}
-//   <h1 className="title">Phonebook</h1>
-//   <ContactForm />
-//   <SearchBox />
-//   <ContactList />
-// </Section>

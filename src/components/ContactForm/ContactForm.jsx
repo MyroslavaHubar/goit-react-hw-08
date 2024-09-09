@@ -2,7 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import css from "./ContactForm.module.css";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contactsOps";
+import { addContact } from "../../redux/contacts/operations";
 
 function ContactForm() {
   const dispatch = useDispatch();
@@ -37,7 +37,11 @@ function ContactForm() {
       validationSchema={ContactValidationSchema}
     >
       <Form className={css.contactForm}>
-        <label htmlFor="name" className={css.contactFormTitle}>
+        <label
+          htmlFor="name"
+          placeholder="Please, enter your name"
+          className={css.contactFormTitle}
+        >
           Name
         </label>
         <Field
@@ -52,7 +56,11 @@ function ContactForm() {
           className={css.contactFormError}
         />
 
-        <label htmlFor="number" className={css.contactFormTitle}>
+        <label
+          htmlFor="number"
+          placeholder="Please, enter your number"
+          className={css.contactFormTitle}
+        >
           Number
         </label>
         <Field
