@@ -7,6 +7,7 @@ import { selectLoading } from "../../redux/contacts/selectors";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import ContactList from "../../components/ContactList/ContactList";
+import css from "./ContactsPage.module.css";
 
 function ContactsPage() {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ function ContactsPage() {
   return (
     <Section>
       {loading && <Loader />}
-      <h1 className="title">Phonebook</h1>
+      <h1 className={css.contactPageTitle}>Phonebook</h1>
       <ContactForm />
       <SearchBox />
       <ContactList />

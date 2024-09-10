@@ -1,0 +1,21 @@
+.userMenuContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.userMenuBtn {
+  width: 100px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: #e21a1a;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.userMenuBtn:hover {
+  background-color: #6a1b9a;
+  transform: scale(1.05);
+}

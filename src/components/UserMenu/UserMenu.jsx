@@ -8,12 +8,16 @@ function UserMenu() {
   const user = useSelector(selectAuthUser);
 
   return (
-    <div>
-      <div>
-        <p className={css.homePageTitle}>Welcome, {user.name}</p>
-        <p className={css.homePageTitle}>Your email: {user.email}</p>
+    <div className={css.userMenuContainer}>
+      <div className={css.userMenuContext}>
+        <p>Welcome, {user.name}!</p>
+        <p>Your email: {user.email}</p>
       </div>
-      <button type="button" onClick={() => dispatch(apiLogOut())}>
+      <button
+        type="button"
+        className={css.userMenuBtn}
+        onClick={() => dispatch(apiLogOut())}
+      >
         Log Out
       </button>
     </div>

@@ -1,0 +1,24 @@
+.homePage {
+  padding: 40px 20px;
+  height: 100%;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.homeTitle {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700;
+  font-size: xx-large;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #2c3e50;
+  letter-spacing: 2px;
+}
+
+.homeText {
+  color: #34495e;
+  text-align: center;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 10px;
+}

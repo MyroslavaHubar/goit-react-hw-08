@@ -14,7 +14,7 @@ function SearchBox() {
 
   return (
     <label className={css.searchBox}>
-      <span>Find contact by name</span>
+      <span className={css.searchBoxTitle}>Find contact by name</span>
       <input
         className={css.searchInput}
         type="text"

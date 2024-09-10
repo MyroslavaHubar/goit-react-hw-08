@@ -1,5 +1,4 @@
 import { lazy, Suspense, useEffect } from "react";
-import "./App.css";
 import Loader from "./components/Loader/Loader";
 import { Route, Routes } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
