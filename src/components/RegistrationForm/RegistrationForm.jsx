@@ -48,17 +48,14 @@ function RegistrationForm() {
       validationSchema={RegisterValidationSchema}
     >
       <Form className={css.registerForm}>
-        <label
-          htmlFor="name"
-          placeholder="Please, enter your name"
-          className={css.registerFormTitle}
-        >
+        <label htmlFor="name" className={css.registerFormTitle}>
           Name
         </label>
         <Field
           type="text"
           name="name"
           id="name"
+          placeholder="Please, enter your name"
           className={css.registerFormInput}
         />
         <ErrorMessage
@@ -67,17 +64,14 @@ function RegistrationForm() {
           className={css.registerFormError}
         />
 
-        <label
-          htmlFor="email"
-          placeholder="Please, enter your email"
-          className={css.registerFormTitle}
-        >
+        <label htmlFor="email" className={css.registerFormTitle}>
           Email
         </label>
         <Field
           type="text"
           name="email"
           id="email"
+          placeholder="Please, enter your email"
           className={css.registerFormInput}
         />
         <ErrorMessage
@@ -85,17 +79,14 @@ function RegistrationForm() {
           component="label"
           className={css.registerFormError}
         />
-        <label
-          htmlFor="password"
-          placeholder="Please, enter your password"
-          className={css.registerFormTitle}
-        >
+        <label htmlFor="password" className={css.registerFormTitle}>
           Password
         </label>
         <Field
           type="password"
           name="password"
           id="password"
+          placeholder="Please, enter your password"
           className={css.registerFormInput}
         />
         <ErrorMessage

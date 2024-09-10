@@ -43,17 +43,14 @@ function LoginForm() {
       validationSchema={LoginValidationSchema}
     >
       <Form className={css.loginForm}>
-        <label
-          htmlFor="email"
-          placeholder="Please, enter your email"
-          className={css.loginFormTitle}
-        >
+        <label htmlFor="email" className={css.loginFormTitle}>
           Email
         </label>
         <Field
           type="text"
           name="email"
           id="email"
+          placeholder="Please, enter your email"
           className={css.loginFormInput}
         />
         <ErrorMessage
@@ -61,17 +58,14 @@ function LoginForm() {
           component="label"
           className={css.loginFormError}
         />
-        <label
-          htmlFor="password"
-          placeholder="Please, enter your password"
-          className={css.loginFormTitle}
-        >
+        <label htmlFor="password" className={css.loginFormTitle}>
           Password
         </label>
         <Field
           type="password"
           name="password"
           id="password"
+          placeholder="Please, enter your password"
           className={css.loginFormInput}
         />
         <ErrorMessage
