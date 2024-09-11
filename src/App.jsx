@@ -19,7 +19,7 @@ function App() {
   const isRefreshing = useSelector(selectAuthIsRefreshing);
 
   useEffect(() => {
-    dispatch(apiRefresh);
+    dispatch(apiRefresh());
   }, [dispatch]);
 
   return isRefreshing ? (
