@@ -3,13 +3,25 @@ import { FaUserLarge } from "react-icons/fa6";
 import css from "./Contact.module.css";
 import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contacts/operations";
+import { useState } from "react";
+import ModalContact from "../ModalContact/ModalContact";
 
 function Contact({ name, number, id }) {
+  const [isOpenModal, setIsOpenModal] = useState(false);
   const dispatch = useDispatch();
-  const onDelete = (id) => {
+
+  const handleConfirmDelete = () => {
     dispatch(deleteContact(id));
+    setIsOpenModal(false);
   };
 
+  function handleDeleteContactClick() {
+    setIsOpenModal(true);
+  }
+
+  function handleDeleteContact() {
+    setIsOpenModal(false);
+  }
   return (
     <li className={css.contact}>
       <div className={css.contactCard}>
@@ -27,11 +39,16 @@ function Contact({ name, number, id }) {
           type="button"
           className={css.contactBtnDelete}
           aria-label="Button delete"
-          onClick={() => onDelete(id)}
+          onClick={handleDeleteContactClick}
         >
           Delete
         </button>
       </div>
+      <ModalContact
+        isOpen={isOpenModal}
+        onRequestClose={handleDeleteContact}
+        onConfirm={handleConfirmDelete}
+      />
     </li>
   );
 }
